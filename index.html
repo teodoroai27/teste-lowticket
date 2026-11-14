@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fut Next Level – Entrenamientos de fútbol desde casa</title>
+<meta name="description" content="App de entrenamientos de fútbol en video para practicar en casa, a tu ritmo y desde el celular.">
+<meta property="og:title" content="Fut Next Level – Entrenamientos de fútbol desde casa">
+<meta property="og:description" content="Accede a entrenamientos de fútbol en video y practica en casa a tu ritmo.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/portada.jpg">
+<!-- TODO: og:image debe ser una URL absoluta (https://tu-dominio.com/assets/portada.jpg) para que WhatsApp/Facebook muestren la vista previa -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#07090B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#22C55E;--gold:#F5B82E}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#07090B;color:#E6E9EE;font-family:Inter,system-ui,sans-serif;line-height:1.5}
+.page{overflow-x:hidden}
+img,video{max-width:100%}
+a{color:#4ADE80}a:hover{color:#86EFAC}
+h1,h2,h3,p{margin:0}
+.h-font{font-family:Montserrat,Inter,system-ui,sans-serif}
+.wrap{position:relative;max-width:1160px;margin:0 auto}
+section{position:relative;overflow:hidden}
+.sec{padding:88px 20px}
+.bg-a{background:#07090B}.bg-b{background:#0A0D10;border-top:1px solid #141A20}
+.h2{font-weight:900;font-size:clamp(28px,3.8vw,42px);line-height:1.1;color:#fff}
+.lead{color:#AEB6C1;font-size:17px}
+.center{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;animation:float 9s ease-in-out infinite}
+.beam{position:absolute;top:-20%;width:180px;height:140%;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,0));filter:blur(18px);pointer-events:none;transform-origin:top center;animation:sway 7s ease-in-out infinite}
+.shine-text{background:linear-gradient(90deg,#4ADE80 0%,#EAFFF1 45%,#4ADE80 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4.5s linear infinite}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;max-width:100%;min-height:54px;padding:0 30px;border:0;border-radius:14px;font-family:Inter,system-ui,sans-serif;font-size:16px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:sweep 3s ease-in-out infinite}
+.btn:hover{transform:translateY(-2px) scale(1.02)}
+.btn:focus-visible,.chip:focus-visible,.step:focus-visible,.faq-q:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn-green{background:var(--accent);color:#04130A;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 10px 30px -8px var(--accent)}
+.btn-green:hover{color:#04130A;box-shadow:0 0 0 1px rgba(255,255,255,.15),0 14px 44px -6px var(--accent)}
+.btn-gold{background:var(--gold);color:#1A1300;box-shadow:0 10px 34px -8px var(--gold)}
+.btn-gold:hover{color:#1A1300;box-shadow:0 14px 48px -6px var(--gold)}
+.btn-full{width:100%}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:ping 1.8s ease-out infinite}
+.glow-frame{position:relative;border-radius:24px;padding:2px;background:linear-gradient(135deg,var(--accent),rgba(255,255,255,.05) 40%,var(--gold));animation:hue 6s ease-in-out infinite}
+.lift{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.lift:hover{transform:translateY(-6px);border-color:#35505F;box-shadow:0 18px 40px -18px rgba(74,222,128,.55)}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:#FFF3C9;box-shadow:0 0 12px 3px rgba(245,184,46,.8);animation:twinkle 2.4s ease-in-out infinite}
+.fade-up{animation:fadeUp .9s ease both}.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+/* header */
+.hdr{position:relative;z-index:2;padding:16px 20px;border-bottom:1px solid #141A20;background:#07090B}
+.hdr .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:22px;letter-spacing:.5px;color:#fff}
+/* hero */
+.hero{padding:72px 20px 96px}
+.hero .wrap{display:flex;flex-direction:column;gap:44px;align-items:center;text-align:center}
+.hero-img{display:block;border-radius:22px;overflow:hidden;line-height:0;position:relative}
+.hero-img img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover}
+.hero-copy{display:flex;flex-direction:column;gap:24px;align-items:center;max-width:780px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:#0E1A13;border:1px solid #1F4A30;color:#B9F8CF;font-size:14px;font-weight:600}
+.hero h1{font-weight:900;font-size:clamp(36px,5vw,60px);line-height:1.04;color:#fff}
+.hero p.sub{font-size:19px;color:#AEB6C1;max-width:600px}
+.small{font-size:14px;color:#7E8896}
+/* offer */
+.offer-wrap{display:flex;flex-direction:column;gap:44px;align-items:center}
+.combo{position:relative;width:100%;max-width:580px;border-radius:20px;background:#15130E;border:2px solid var(--gold);overflow:hidden;display:flex;flex-direction:column;animation:pulseGold 2.8s ease-in-out infinite}
+.combo-tag{padding:9px;background:var(--gold);color:#1A1300;text-align:center;font-weight:900;font-size:13px;letter-spacing:1.5px}
+.combo img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.combo-body{padding:24px;display:flex;flex-direction:column;gap:16px;text-align:center}
+.combo-name{font-weight:800;color:var(--gold);font-size:15px;letter-spacing:.5px}
+.combo-sub{font-weight:800;color:#fff;font-size:21px}
+.price{font-weight:900;font-size:56px;line-height:1;color:#4ADE80}
+.combo ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#C9CFD8;text-align:left}
+.combo li{display:flex;gap:10px;align-items:flex-start}
+.chk{flex:none;margin-top:2px}
+/* audience */
+.aud-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.aud{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:18px;background:#11151A;border:1px solid #1F2630}
+.aud-ic{width:46px;height:46px;border-radius:14px;background:#0F2A1A;border:1px solid #1F4A30;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 22px -8px var(--accent)}
+.aud-t{font-weight:800;color:#fff;font-size:17px}.aud-d{color:#AEB6C1;font-size:15px}
+/* videos */
+.vids{width:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.vid{flex:1 1 170px;max-width:220px;aspect-ratio:9/16;border-radius:26px;background:#0E1410;border:1px solid #1F4A30;overflow:hidden;box-shadow:0 0 30px -12px var(--accent)}
+.vid video{display:block;width:100%;height:100%;object-fit:cover}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:#11151A;border:1px solid #232B35;color:#E6E9EE;font:600 15px Inter,system-ui,sans-serif;cursor:pointer;transition:all .2s ease}
+.chip:hover{border-color:var(--accent);box-shadow:0 0 22px -6px var(--accent)}
+.chip-on{background:#0F2A1A;border-color:var(--accent);color:#B9F8CF;box-shadow:0 0 26px -4px var(--accent)}
+/* steps */
+.bar{position:relative;height:6px;border-radius:999px;background:#1A2129;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:999px;background:var(--accent);box-shadow:0 0 18px var(--accent);transition:width .6s ease}
+.steps{display:flex;flex-wrap:wrap;gap:14px}
+.step{flex:1 1 180px;text-align:left;padding:18px;border-radius:16px;background:#11151A;border:1px solid #1F2630;color:#C9CFD8;font:500 15px Inter,system-ui,sans-serif;cursor:pointer;transition:all .3s ease}
+.step-on{background:#0F2A1A;border-color:var(--accent);color:#fff;box-shadow:0 0 34px -8px var(--accent);transform:translateY(-4px)}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#1A2129;color:#E6E9EE;font:800 16px Montserrat,Inter,sans-serif;margin-bottom:10px;transition:all .3s ease}
+.step-on .step-num{background:var(--accent);color:#04130A;box-shadow:0 0 18px var(--accent)}
+.step-t{display:block;font-size:17px;font-weight:700}
+.phone-ph{max-width:360px;width:100%;margin:8px auto 0}
+.phone-ph div{border-radius:22px;background:#0E1410;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;color:#9FC9AE;font-size:14px}
+/* faq */
+.faq{border-radius:14px;background:#11151A;border:1px solid #1F2630;transition:border-color .2s ease,box-shadow .2s ease}
+.faq-open{border-color:#2F6B45;box-shadow:0 0 30px -12px var(--accent)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:16px 20px;background:transparent;border:0;color:#fff;font:700 17px Inter,system-ui,sans-serif;text-align:left;cursor:pointer}
+.faq-icon{flex:none;transition:transform .25s ease}
+.faq-open .faq-icon{transform:rotate(45deg)}
+.faq-a{padding:0 20px 20px;color:#AEB6C1;font-size:16px}
+.faq-a[hidden]{display:none}
+/* final */
+.final{padding:96px 20px}
+.final .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center}
+.final-img{border-radius:22px;overflow:hidden;line-height:0}
+.final-img img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.final-copy{display:flex;flex-direction:column;gap:20px}
+.final h2{font-weight:900;font-size:clamp(30px,4.2vw,48px);line-height:1.08;color:#fff}
+footer{padding:40px 20px;background:#050607;border-top:1px solid #141A20}
+footer .wrap{display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-size:14px}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-26px)}}
+@keyframes sway{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(10deg)}}
+@keyframes shine{to{background-position:-220% 0}}
+@keyframes sweep{0%{left:-70%}55%,100%{left:130%}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(34,197,94,.7)}100%{box-shadow:0 0 0 12px rgba(34,197,94,0)}}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 26px -2px rgba(245,184,46,.35)}50%{box-shadow:0 0 54px 2px rgba(245,184,46,.65)}}
+@keyframes hue{0%,100%{filter:saturate(1)}50%{filter:saturate(1.5) brightness(1.15)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.2)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hdr">
+<div class="wrap">
+<div class="logo h-font">FUT <span class="shine-text">NEXT LEVEL</span></div>
+<a href="#oferta" class="btn btn-green" style="min-height:44px;padding:0 20px;font-size:14px">Quiero mi acceso</a>
+</div>
+</header>
+
+<section class="hero bg-a">
+<div class="orb" style="width:420px;height:420px;background:rgba(34,197,94,.28);top:-120px;left:-100px"></div>
+<div class="orb" style="width:360px;height:360px;background:rgba(245,184,46,.18);bottom:-140px;right:-60px;animation-delay:-4s"></div>
+<div class="beam" style="left:18%"></div>
+<div class="beam" style="right:16%;animation-delay:-3.5s"></div>
+<div class="wrap">
+<div class="glow-frame fade-up" style="width:100%;max-width:1100px">
+<a href="#oferta" class="hero-img" aria-label="Ver la oferta">
+<img src="assets/portada.jpg" alt="Joven con la camiseta celeste mostrando la app de entrenamientos en el celular: Entrená mejor desde cualquier lugar" width="1672" height="941" fetchpriority="high">
+<span class="spark" style="top:10%;left:52%"></span>
+<span class="spark" style="top:78%;left:92%;animation-delay:-1.2s"></span>
+</a>
+</div>
+<div class="hero-copy">
+<div class="badge fade-up d1"><span class="badge-dot"></span>App de entrenamientos de fútbol</div>
+<h1 class="h-font fade-up d1">Ayuda a tu hijo a entrenar fútbol <span class="shine-text">desde casa</span></h1>
+<p class="sub fade-up d2">Accede a entrenamientos de fútbol en video para practicar a su ritmo, desde el celular y con el espacio que tienen disponible.</p>
+<div class="fade-up d3"><a href="#oferta" class="btn btn-green" style="min-height:60px;padding:0 34px;font-size:17px">Quiero mi acceso <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a></div>
+<p class="small fade-up d4">Contenido digital con acceso después de la compra.</p>
+</div>
+</div>
+</section>
+
+<section id="oferta" class="sec bg-b" style="padding:88px 20px 96px">
+<div class="orb" style="width:520px;height:520px;background:rgba(34,197,94,.12);top:20%;left:50%;margin-left:-260px"></div>
+<div class="wrap offer-wrap">
+<div class="center" style="gap:12px">
+<h2 class="h-font h2" style="font-size:clamp(30px,4.2vw,46px)">Todo su entrenamiento en <span class="shine-text">una sola app</span></h2>
+<p class="lead" style="max-width:560px">Un único acceso con todo el contenido para acompañar su entrenamiento.</p>
+</div>
+<div class="combo" id="tarjeta-oferta">
+<div class="combo-tag">ACCESO COMPLETO</div>
+<img src="assets/app-entrenamientos.jpg" alt="La app de entrenamientos de fútbol en el celular, con videos exclusivos por categoría: finalización, pase y control" width="1672" height="941" loading="lazy">
+<div class="combo-body">
+<div class="combo-name">APLICATIVO FUT NEXT LEVEL</div>
+<div class="combo-sub h-font">Entrenamientos de fútbol en video</div>
+<div class="price h-font">US$ 9,90</div>
+<!-- TODO: sustituye "#" por el enlace de checkout (Hotmart, Kiwify, Stripe, etc.) -->
+<a href="#" class="btn btn-gold btn-full" style="min-height:60px;font-size:17px">Quiero mi acceso</a>
+<ul>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Más de 1.000 entrenamientos de fútbol en video</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Acceso al aplicativo Fut Next Level</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Entrenamientos organizados por posición y grupo de edad</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Soporte prioritario, según disponibilidad</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Acceso de por vida y actualizaciones, según las condiciones de la oferta</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec bg-a">
+<div class="wrap" style="display:flex;flex-direction:column;gap:36px">
+<div class="center">
+<h2 class="h-font h2">Un recurso para quienes quieren <span class="shine-text">seguir aprendiendo</span></h2>
+<p class="lead" style="max-width:580px">Elige los ejercicios de acuerdo con la edad, el nivel y los objetivos de cada atleta.</p>
+</div>
+<div class="aud-grid">
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Madres y padres</div><div class="aud-d">Acompaña la práctica deportiva de tus hijos.</div></div></div>
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Jugadores en formación</div><div class="aud-d">Encuentra ejercicios para complementar su rutina.</div></div></div>
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Entrenadores</div><div class="aud-d">Consulta ideas para organizar tus sesiones.</div></div></div>
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Escuelas deportivas</div><div class="aud-d">Amplía los recursos disponibles para tus alumnos.</div></div></div>
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Profesores de educación física</div><div class="aud-d">Explora actividades para tus clases.</div></div></div>
+<div class="lift aud"><div class="aud-ic"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="8 12 11 15 16 9"></polyline></svg></div><div><div class="aud-t">Amantes del fútbol</div><div class="aud-d">Sigue practicando y desarrollando habilidades.</div></div></div>
+</div>
+</div>
+</section>
+
+<section class="sec bg-a">
+<div class="wrap" style="display:flex;flex-direction:column;gap:36px;align-items:center">
+<div class="center">
+<h2 class="h-font h2">Mira lo que incluye <span class="shine-text">tu acceso</span></h2>
+<p class="lead" style="max-width:600px">Consulta entrenamientos en video desde tu celular, tableta o computadora.</p>
+</div>
+<div class="vids">
+<div class="lift vid"><video src="videos/treino-1.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 1"></video></div>
+<div class="lift vid"><video src="videos/treino-2.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 2"></video></div>
+<div class="lift vid"><video src="videos/treino-3.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 3"></video></div>
+<div class="lift vid"><video src="videos/treino-4.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de ejercicios de control de balón"></video></div>
+<div class="lift vid"><video src="videos/treino-5.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 5"></video></div>
+</div>
+<a href="#oferta" class="btn btn-green">Quiero mi acceso</a>
+</div>
+</section>
+
+<section class="sec bg-a">
+<div class="wrap" style="max-width:960px;display:flex;flex-direction:column;gap:28px;align-items:center;text-align:center">
+<h2 class="h-font h2">Encuentra ejercicios para distintas <span class="shine-text">posiciones y habilidades</span></h2>
+<p id="skill-msg" aria-live="polite" style="color:#8FD3A8;font-size:15px;font-weight:600">Toca las que más te interesan</p>
+<div class="chips">
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Porteros</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Delanteros</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Defensas centrales</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Extremos</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Mediocampistas</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Laterales</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Pase y finalización</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Control del balón</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Resistencia</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Agilidad y velocidad</button>
+<button type="button" class="chip" aria-pressed="false" data-skill><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12 10 17 19 7"></polyline></svg>Regate</button>
+</div>
+<p class="lead" style="max-width:600px">Adapta la práctica al espacio disponible, la edad y el nivel del atleta.</p>
+</div>
+</section>
+
+<section class="sec bg-b">
+<div class="wrap" style="max-width:1040px;display:flex;flex-direction:column;gap:34px">
+<div class="center">
+<h2 class="h-font h2">Accede a tus entrenamientos <span class="shine-text">en pocos pasos</span></h2>
+</div>
+<div class="bar"><i id="bar"></i></div>
+<div class="steps">
+<button type="button" class="step step-on" aria-pressed="true" data-step="0"><span class="step-num">1</span><span class="step-t">Haz clic en «Quiero mi acceso».</span></button>
+<button type="button" class="step" aria-pressed="false" data-step="1"><span class="step-num">2</span><span class="step-t">Completa la compra.</span></button>
+<button type="button" class="step" aria-pressed="false" data-step="2"><span class="step-num">3</span><span class="step-t">Recibe las instrucciones de acceso por correo electrónico.</span></button>
+<button type="button" class="step" aria-pressed="false" data-step="3"><span class="step-num">4</span><span class="step-t">Abre el material desde tu dispositivo.</span></button>
+</div>
+<!-- TODO: añade aquí una grabación o capturas reales de la app (había un marcador de posición visible que se retiró):
+<div class="glow-frame phone-ph"><div>[Grabación o capturas reales de la app]</div></div> -->
+</div>
+</section>
+
+<section class="sec bg-a">
+<div class="wrap" style="max-width:780px;display:flex;flex-direction:column;gap:28px">
+<h2 class="h-font h2" style="text-align:center">Preguntas <span class="shine-text">frecuentes</span></h2>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="faq faq-open"><button type="button" class="faq-q" aria-expanded="true" aria-controls="faq-a-0" id="faq-q-0"><span>¿Cómo recibo el acceso?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-0" role="region" aria-labelledby="faq-q-0">Después de confirmarse el pago, recibirás las instrucciones de acceso por correo electrónico. Revisa también la carpeta de correo no deseado.</p></div>
+<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1"><span>¿El material está en video?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden>Sí, los entrenamientos están en formato de video.</p></div>
+<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span>¿Para quién es el material?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden>El contenido está dirigido a familias, jugadores en formación, entrenadores, escuelas deportivas, profesores de educación física y personas interesadas en practicar.</p></div>
+<!-- TODO: reinsertar "¿Hay garantía?" cuando exista la política real (plazo y condiciones); se retiró el marcador visible "[Política real de garantía...]" -->
+<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4"><span>¿Cuándo recibiré el material?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden>El acceso se envía después de la confirmación del pago.</p></div>
+<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5"><span>¿Puedo acceder desde el celular?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" hidden>Sí, puedes acceder desde celular, tableta o computadora.</p></div>
+</div>
+</div>
+</section>
+
+<section class="final bg-b">
+<div class="orb" style="width:480px;height:480px;background:rgba(34,197,94,.22);bottom:-160px;left:-120px"></div>
+<div class="orb" style="width:380px;height:380px;background:rgba(245,184,46,.16);top:-120px;right:-80px;animation-delay:-5s"></div>
+<div class="wrap">
+<div class="glow-frame"><div class="final-img"><img src="assets/entrenamiento-final.jpg" alt="Niños entrenando fútbol de noche con conos, vallas y porterías pequeñas bajo los focos" width="1536" height="1024" loading="lazy"></div></div>
+<div class="final-copy">
+<h2 class="h-font">Elige cómo quieres <span class="shine-text">acompañar su entrenamiento</span></h2>
+<p class="lead" style="font-size:18px">Accede a todos los entrenamientos en la app por US$ 9,90 y empiecen a entrenar hoy mismo.</p>
+<div><a href="#oferta" class="btn btn-green" style="min-height:60px;padding:0 36px;font-size:17px">Quiero mi acceso</a></div>
+<p class="small">Consulta el precio y las condiciones antes de completar tu compra.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div class="logo h-font" style="font-size:20px">FUT <span class="shine-text">NEXT LEVEL</span></div>
+<!-- TODO: sustituye los "#" por las páginas legales reales -->
+<nav aria-label="Enlaces legales">
+<a href="#">Política de privacidad</a>
+<a href="#">Términos de uso</a>
+<a href="#">Política de reembolso</a>
+<a href="#">Canal de soporte</a>
+<a href="#">Información de contacto</a>
+</nav>
+<div class="small" style="font-size:13px">© <span id="year">2026</span> Fut Next Level. Todos los derechos reservados.</div>
+</div>
+</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script>
+(function () {
+  // Vídeos: reproducción automática, sin sonido y en bucle
+  // (solo se reproducen mientras están visibles, para no cargar ~20 MB de golpe)
+  var yr = document.getElementById('year');
+  if (yr) yr.textContent = new Date().getFullYear();
+  function playVid(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  var vids = document.querySelectorAll('video');
+  vids.forEach(function (v) { v.muted = true; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) playVid(e.target); else e.target.pause(); });
+    }, { threshold: 0.25 });
+    vids.forEach(function (v) { io.observe(v); });
+  } else {
+    vids.forEach(playVid);
+  }
+
+  // Scroll animado (GSAP) hacia la oferta en todos los botones de CTA
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.gsap && window.ScrollToPlugin) gsap.registerPlugin(ScrollToPlugin);
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[href="#oferta"]') : null;
+    if (!a) return;
+    ev.preventDefault();
+    var target = document.getElementById('oferta');
+    if (!target) return;
+    if (!window.gsap || !window.ScrollToPlugin || reduce) {
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      return;
+    }
+    var card = document.getElementById('tarjeta-oferta');
+    // CSS scroll-behavior:smooth choca con GSAP (el scroll se ve entrecortado): se desactiva durante la animación
+    var root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    gsap.to(window, {
+      duration: 1.3, scrollTo: { y: target, autoKill: true }, ease: 'power3.inOut',
+      onInterrupt: function () { root.style.scrollBehavior = ''; },
+      onComplete: function () {
+        root.style.scrollBehavior = '';
+        if (card) gsap.fromTo(card, { filter: 'drop-shadow(0 0 36px rgba(245,184,46,0.95))' }, { filter: 'drop-shadow(0 0 0px rgba(245,184,46,0))', duration: 1.6, ease: 'power2.out', clearProps: 'filter' });
+      }
+    });
+  });
+
+  // Chips de posiciones y habilidades
+  var chips = document.querySelectorAll('[data-skill]');
+  var msg = document.getElementById('skill-msg');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.getAttribute('aria-pressed') !== 'true';
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      c.classList.toggle('chip-on', on);
+      var n = document.querySelectorAll('[data-skill][aria-pressed="true"]').length;
+      msg.textContent = n === 0 ? 'Toca las que más te interesan' : (n === 1 ? '1 seleccionada: ¡hay ejercicios para ella!' : n + ' seleccionadas: ¡hay ejercicios para todas!');
+    });
+  });
+
+  // Pasos con barra de progreso (avanzan solos; al hacer clic quedan fijos)
+  var steps = document.querySelectorAll('[data-step]');
+  var bar = document.getElementById('bar');
+  var cur = 0, pinned = false;
+  function setStep(i) {
+    cur = i;
+    steps.forEach(function (s, k) {
+      s.classList.toggle('step-on', k <= i);
+      s.setAttribute('aria-pressed', k === i ? 'true' : 'false');
+    });
+    bar.style.width = Math.round((i / (steps.length - 1)) * 100) + '%';
+  }
+  steps.forEach(function (s, k) { s.addEventListener('click', function () { pinned = true; setStep(k); }); });
+  setStep(0);
+  if (!reduce) setInterval(function () { if (!pinned) setStep((cur + 1) % steps.length); }, 2600);
+
+  // Preguntas frecuentes (acordeón)
+  var faqs = document.querySelectorAll('.faq');
+  faqs.forEach(function (f) {
+    var q = f.querySelector('.faq-q'), a = f.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var open = q.getAttribute('aria-expanded') === 'true';
+      faqs.forEach(function (o) {
+        o.classList.remove('faq-open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        o.querySelector('.faq-a').hidden = true;
+      });
+      if (!open) { f.classList.add('faq-open'); q.setAttribute('aria-expanded', 'true'); a.hidden = false; }
+    });
+  });
+})();
+</script>
+</body>
+</html>
