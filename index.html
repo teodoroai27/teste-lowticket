@@ -401,5 +401,30 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
   });
 })();
 </script>
+<script>
+  // Back redirect (UTMify): ao clicar em voltar, leva o usuário para o link abaixo
+  const link = 'https://www.futnextlevel.app/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
 </body>
 </html>
