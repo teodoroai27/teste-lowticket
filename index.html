@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fut Next Level – Entrenamientos de fútbol desde casa</title>
-<meta name="description" content="App de entrenamientos de fútbol en video para practicar en casa, a tu ritmo y desde el celular.">
-<meta property="og:title" content="Fut Next Level – Entrenamientos de fútbol desde casa">
-<meta property="og:description" content="Accede a entrenamientos de fútbol en video y practica en casa a tu ritmo.">
+<title>Fut Next Level – Técnicas de fútbol para practicar desde casa</title>
+<meta name="description" content="App con tarjetas de técnicas, tutoriales y prácticas de juego: pases, remates, defensa, ataque y más. Practica a tu ritmo desde el celular.">
+<meta property="og:title" content="Fut Next Level – Técnicas de fútbol para practicar desde casa">
+<meta property="og:description" content="Tarjetas de técnicas y tutoriales de fútbol: pases, remates, atajadas, defensa y ataque.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/portada.jpg">
 <!-- TODO: og:image debe ser una URL absoluta (https://tu-dominio.com/assets/portada.jpg) para que WhatsApp/Facebook muestren la vista previa -->
@@ -99,10 +99,11 @@ section{position:relative;overflow:hidden}
 .aud{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:18px;background:#11151A;border:1px solid #1F2630}
 .aud-ic{width:46px;height:46px;border-radius:14px;background:#0F2A1A;border:1px solid #1F4A30;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 22px -8px var(--accent)}
 .aud-t{font-weight:800;color:#fff;font-size:17px}.aud-d{color:#AEB6C1;font-size:15px}
-/* videos */
-.vids{width:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
-.vid{flex:1 1 170px;max-width:220px;aspect-ratio:9/16;border-radius:26px;background:#0E1410;border:1px solid #1F4A30;overflow:hidden;box-shadow:0 0 30px -12px var(--accent)}
-.vid video{display:block;width:100%;height:100%;object-fit:cover}
+/* technique cards */
+.tcards{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.tcard{padding:24px;border-radius:20px;background:#11151A;border:1px solid #1F4A30;box-shadow:0 0 30px -14px var(--accent);display:flex;flex-direction:column;gap:10px;text-align:left}
+.tcard-ic{width:46px;height:46px;border-radius:14px;background:#0F2A1A;border:1px solid #1F4A30;display:flex;align-items:center;justify-content:center;font-size:22px}
+.tcard-t{font-weight:800;color:#fff;font-size:18px}.tcard-d{color:#AEB6C1;font-size:15px;line-height:1.5}
 /* chips */
 .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:#11151A;border:1px solid #232B35;color:#E6E9EE;font:600 15px Inter,system-ui,sans-serif;cursor:pointer;transition:all .2s ease}
@@ -155,7 +156,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <header class="hdr">
 <div class="wrap">
 <div class="logo h-font">FUT <span class="shine-text">NEXT LEVEL</span></div>
-<a href="#oferta" class="btn btn-green" style="min-height:44px;padding:0 20px;font-size:14px">Quiero mi acceso</a>
+<a href="https://pay.hotmart.com/H108512712K" class="btn btn-green" style="min-height:44px;padding:0 20px;font-size:14px">Quiero mi acceso</a>
 </div>
 </header>
 
@@ -175,8 +176,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <div class="hero-copy">
 <div class="badge fade-up d1"><span class="badge-dot"></span>App de entrenamientos de fútbol</div>
 <h1 class="h-font fade-up d1">Ayuda a tu hijo a entrenar fútbol <span class="shine-text">desde casa</span></h1>
-<p class="sub fade-up d2">Accede a entrenamientos de fútbol en video para practicar a su ritmo, desde el celular y con el espacio que tienen disponible.</p>
-<div class="fade-up d3"><a href="#oferta" class="btn btn-green" style="min-height:60px;padding:0 34px;font-size:17px">Quiero mi acceso <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a></div>
+<p class="sub fade-up d2">Accede a tarjetas con técnicas, tutoriales y prácticas de juego de pases, remates, defensa y ataque, para entrenar a su ritmo desde el celular.</p>
+<div class="fade-up d3"><a href="https://pay.hotmart.com/H108512712K" class="btn btn-green" style="min-height:60px;padding:0 34px;font-size:17px">Quiero mi acceso <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a></div>
 <p class="small fade-up d4">Contenido digital con acceso después de la compra.</p>
 </div>
 </div>
@@ -187,21 +188,19 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <div class="wrap offer-wrap">
 <div class="center" style="gap:12px">
 <h2 class="h-font h2" style="font-size:clamp(30px,4.2vw,46px)">Todo su entrenamiento en <span class="shine-text">una sola app</span></h2>
-<p class="lead" style="max-width:560px">Un único acceso con todo el contenido para acompañar su entrenamiento.</p>
+<p class="lead" style="max-width:560px">Un único acceso con todas las tarjetas de técnicas y prácticas para acompañar su entrenamiento.</p>
 </div>
 <div class="combo" id="tarjeta-oferta">
 <div class="combo-tag">ACCESO COMPLETO</div>
-<img src="assets/app-entrenamientos.jpg" alt="La app de entrenamientos de fútbol en el celular, con videos exclusivos por categoría: finalización, pase y control" width="1672" height="941" loading="lazy">
+<img src="assets/app-entrenamientos.jpg" alt="La app de entrenamientos de fútbol en el celular, con tarjetas de técnicas por categoría: finalización, pase y control" width="1672" height="941" loading="lazy">
 <div class="combo-body">
 <div class="combo-name">APLICATIVO FUT NEXT LEVEL</div>
-<div class="combo-sub h-font">Entrenamientos de fútbol en video</div>
+<div class="combo-sub h-font">Tarjetas de técnicas y prácticas de juego</div>
 <div class="price h-font">US$ 9,90</div>
-<!-- TODO: sustituye "#" por el enlace de checkout (Hotmart, Kiwify, Stripe, etc.) -->
-<a href="#" class="btn btn-gold btn-full" style="min-height:60px;font-size:17px">Quiero mi acceso</a>
+<a href="https://pay.hotmart.com/H108512712K" class="btn btn-gold btn-full" style="min-height:60px;font-size:17px">Quiero mi acceso</a>
 <ul>
-<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Entrenamientos de fútbol en video</span></li>
+<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Tarjetas de técnicas, tutoriales y prácticas en juego: pases, remates, atajadas, defensa y ataque</span></li>
 <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Acceso al aplicativo Fut Next Level</span></li>
-<li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Entrenamientos organizados por posición y grupo de edad</span></li>
 <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Soporte prioritario, según disponibilidad</span></li>
 <li><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B82E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="chk"><polyline points="5 12 10 17 19 7"></polyline></svg><span>Acceso de por vida y actualizaciones, según las condiciones de la oferta</span></li>
 </ul>
@@ -231,16 +230,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <div class="wrap" style="display:flex;flex-direction:column;gap:36px;align-items:center">
 <div class="center">
 <h2 class="h-font h2">Mira lo que incluye <span class="shine-text">tu acceso</span></h2>
-<p class="lead" style="max-width:600px">Consulta entrenamientos en video desde tu celular, tableta o computadora.</p>
+<p class="lead" style="max-width:600px">Consulta las tarjetas de técnicas y tutoriales desde tu celular, tableta o computadora.</p>
 </div>
-<div class="vids">
-<div class="lift vid"><video src="videos/treino-1.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 1"></video></div>
-<div class="lift vid"><video src="videos/treino-2.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 2"></video></div>
-<div class="lift vid"><video src="videos/treino-3.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 3"></video></div>
-<div class="lift vid"><video src="videos/treino-4.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de ejercicios de control de balón"></video></div>
-<div class="lift vid"><video src="videos/treino-5.mp4" muted loop playsinline preload="metadata" disablepictureinpicture aria-label="Ejemplo de entrenamiento de fútbol 5"></video></div>
+<div class="tcards">
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">⚽</div><div class="tcard-t">Pases</div><div class="tcard-d">Técnica paso a paso del pase corto, largo y al primer toque, con práctica en situaciones de juego.</div></div>
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">🎯</div><div class="tcard-t">Remates</div><div class="tcard-d">Cómo posicionar el cuerpo y golpear el balón para rematar con precisión y potencia.</div></div>
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">🧤</div><div class="tcard-t">Atajadas</div><div class="tcard-d">Técnicas para porteros: posición, reacción y cómo actuar en jugadas reales de partido.</div></div>
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">🛡️</div><div class="tcard-t">Defensa</div><div class="tcard-d">Marcaje, anticipación y cómo recuperar el balón en situaciones reales de juego.</div></div>
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">⚡</div><div class="tcard-t">Ataque</div><div class="tcard-d">Desmarques, movimientos sin balón y jugadas de ataque explicadas en la práctica.</div></div>
+<div class="lift tcard"><div class="tcard-ic" aria-hidden="true">🔥</div><div class="tcard-t">Control y regate</div><div class="tcard-d">Recibir, controlar y superar al rival, con tutoriales y ejemplos aplicados al partido.</div></div>
 </div>
-<a href="#oferta" class="btn btn-green">Quiero mi acceso</a>
+<a href="https://pay.hotmart.com/H108512712K" class="btn btn-green">Quiero mi acceso</a>
 </div>
 </section>
 
@@ -287,7 +287,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <h2 class="h-font h2" style="text-align:center">Preguntas <span class="shine-text">frecuentes</span></h2>
 <div style="display:flex;flex-direction:column;gap:12px">
 <div class="faq faq-open"><button type="button" class="faq-q" aria-expanded="true" aria-controls="faq-a-0" id="faq-q-0"><span>¿Cómo recibo el acceso?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-0" role="region" aria-labelledby="faq-q-0">Después de confirmarse el pago, recibirás las instrucciones de acceso por correo electrónico. Revisa también la carpeta de correo no deseado.</p></div>
-<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1"><span>¿El material está en video?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden>Sí, los entrenamientos están en formato de video.</p></div>
+<div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1"><span>¿Cómo es el material?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden>Son tarjetas dentro de la app con técnicas, tutoriales y prácticas aplicadas al juego: pases, remates, atajadas, defensa, ataque y más.</p></div>
 <div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2"><span>¿Para quién es el material?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden>El contenido está dirigido a familias, jugadores en formación, entrenadores, escuelas deportivas, profesores de educación física y personas interesadas en practicar.</p></div>
 <!-- TODO: reinsertar "¿Hay garantía?" cuando exista la política real (plazo y condiciones); se retiró el marcador visible "[Política real de garantía...]" -->
 <div class="faq"><button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4"><span>¿Cuándo recibiré el material?</span><svg class="faq-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button><p class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden>El acceso se envía después de la confirmación del pago.</p></div>
@@ -303,8 +303,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;font-
 <div class="glow-frame"><div class="final-img"><img src="assets/entrenamiento-final.jpg" alt="Niños entrenando fútbol de noche con conos, vallas y porterías pequeñas bajo los focos" width="1536" height="1024" loading="lazy"></div></div>
 <div class="final-copy">
 <h2 class="h-font">Elige cómo quieres <span class="shine-text">acompañar su entrenamiento</span></h2>
-<p class="lead" style="font-size:18px">Accede a todos los entrenamientos en la app por US$ 9,90 y empiecen a entrenar hoy mismo.</p>
-<div><a href="#oferta" class="btn btn-green" style="min-height:60px;padding:0 36px;font-size:17px">Quiero mi acceso</a></div>
+<p class="lead" style="font-size:18px">Accede a todas las tarjetas de técnicas en la app por US$ 9,90 y empiecen a entrenar hoy mismo.</p>
+<div><a href="https://pay.hotmart.com/H108512712K" class="btn btn-green" style="min-height:60px;padding:0 36px;font-size:17px">Quiero mi acceso</a></div>
 <p class="small">Consulta el precio y las condiciones antes de completar tu compra.</p>
 </div>
 </div>
